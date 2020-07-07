@@ -1,3 +1,3 @@
 $OpenitProgramData = $Env:ProgramData + '\\Openit'
 if ( !( Test-Path -Path $OpenitProgramData -PathType Container ) ) { New-Item -Path $OpenitProgramData -ItemType Directory }
-Start-Process msiexec.exe -Wait -ArgumentList "/I https://privatebox.openit.com/67880d02f530b30df656b7f2226ed204/openit_client_windows_x64.msi /l*v $OpenitProgramData\\openit_install.log /quiet"
+Start-Process msiexec.exe -Wait -ArgumentList "/I https://privatebox.openit.com/67880d02f530b30df656b7f2226ed204/openit_client_windows_x64.msi SERVERNAME=openit2019.openitcloud.com SERVERURI=https://openit2019.openitcloud.com:443 /l*v $OpenitProgramData\\openit_install.log /quiet"

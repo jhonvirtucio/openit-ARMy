@@ -14,5 +14,8 @@ else {
     # Install openit client from the azure blob storage
     $installerPath = "$OpenitProgramData\openit_client_installer.msi"
     (New-Object System.Net.WebClient).DownloadFile($INSTALLERURL, $installerPath)
-    Start-Process msiexec.exe -Wait -ArgumentList "/I $installerPath SERVERURI=$SERVERURI /l*v $OpenitProgramData\openit_install.log /quiet
+    Start-Process msiexec.exe -Wait -ArgumentList "/I $installerPath SERVERURI=$SERVERURI /l*v $OpenitProgramData\openit_install.log /quiet"
+    
+    # Cleanup
+    Remove-Item $installerPath
 }

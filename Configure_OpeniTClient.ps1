@@ -1,5 +1,5 @@
 Param(
-    [string] [Parameter(Mandatory = $true)] $SERVERURI
+    [string] [Parameter(Mandatory = $true)] $SERVERURI,
     [string] [Parameter(Mandatory = $true)] $INSTALLERURL
 )
 $OpenitProgramData = $Env:ProgramData + "\Openit"

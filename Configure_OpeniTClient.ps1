@@ -18,7 +18,7 @@ else {
     $Container          = 'clientinstallers'
 
     # SasToken to access the Azure Blob Storage account. Requires at least Read + List permissions
-    $SasToken = '?sv=2019-10-10&ss=b&srt=o&sp=rl&se=2022-01-07T17:48:59Z&st=2020-07-08T09:48:59Z&spr=https&sig=rc4BPLggigozF3hNAagX8s9ngAI%2FrHEUNLz7mhPVHRo%3D'
+    $SasToken = '?sv=2019-10-10&ss=b&srt=sco&sp=rlx&se=2022-09-30T14:29:10Z&st=2020-07-10T06:29:10Z&spr=https&sig=qNvGnavdacF04NsuPF0SNp%2F8IFHPIPVO8%2Fx3X%2F4MXhU%3D'
 
     # Installer file and arguments passed to install the application.
     $ApplicationSetupFile = 'openit_9_6_30_client_windows_x64.msi'

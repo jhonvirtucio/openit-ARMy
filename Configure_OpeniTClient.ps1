@@ -69,7 +69,7 @@ else {
     # All files contained inside the given $Container will be downloaded from Azure Blob Storage (Requires SAS Token with Read + List access rights)
     try {
         Write-Output "Trying to download installer files ..."
-        $AzureStorageContext = New-AzStorageContext -StorageAccountName $StorageAccountName -SasToken $SasToken
+        $AzureStorageContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $SasToken
         $Blobs = Get-AzureStorageBlob -Container $Container -Context $AzureStorageContext
         foreach ($Blob in $Blobs) {
             # Save file to $Env:Temp\$Container

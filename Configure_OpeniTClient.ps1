@@ -1,7 +1,10 @@
 Param(
-    [string] [Parameter(Mandatory = $true)] $SERVERURI,
-    [string] [Parameter(Mandatory = $true)] $INSTALLERURL,
-    [switch] $privateBoxSource
+    [string] [Parameter(Mandatory = $true)] $ServerURI,
+    [string] $StorageAccountName = 'storageopenit',
+    [string] $Container = 'clientinstallers',
+    [string] $SasToken = '?sv=2019-10-10&ss=b&srt=sco&sp=rlx&se=2022-09-30T14:29:10Z&st=2020-07-10T06:29:10Z&spr=https&sig=qNvGnavdacF04NsuPF0SNp%2F8IFHPIPVO8%2Fx3X%2F4MXhU%3D',
+    [string] $ApplicationSetupFile = 'openit_9_6_30_client_windows_x64.msi',
+    [string] $ApplicationArguments = '/S'
 )
 
 if ($privateBoxSource) {
@@ -11,19 +14,6 @@ if ($privateBoxSource) {
 else {
 
     $ErrorActionPreference = 'Stop'
-
-    #region Configuration
-    # The Azure Blob Storage Account and Container where all required installer files are available at.
-    $StorageAccountName = 'storageopenit'
-    $Container          = 'clientinstallers'
-
-    # SasToken to access the Azure Blob Storage account. Requires at least Read + List permissions
-    $SasToken = '?sv=2019-10-10&ss=b&srt=sco&sp=rlx&se=2022-09-30T14:29:10Z&st=2020-07-10T06:29:10Z&spr=https&sig=qNvGnavdacF04NsuPF0SNp%2F8IFHPIPVO8%2Fx3X%2F4MXhU%3D'
-
-    # Installer file and arguments passed to install the application.
-    $ApplicationSetupFile = 'openit_9_6_30_client_windows_x64.msi'
-    $ApplicationArguments = '/S'
-    #endregion Configuration
 
     # Install the NuGet Package Provider, preventing that trusting the PSGallery with the Set-PSRepository cmdlet would hang on user input.
     try {

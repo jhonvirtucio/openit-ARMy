@@ -60,6 +60,8 @@ else {
         Write-Output 'AzureRM.Storage Module is already present.'
     }
 
+    Import-Module Azure.Storage
+
     # Create temp directory for storing the installation files in $Env:Temp
     if (!(Test-Path -Path "$Env:Temp\$Container")) { 
         Write-Output "Creating '$Env:Temp\$Container' directory"

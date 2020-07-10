@@ -40,7 +40,7 @@ else {
     # Install required AzureRM Storage module. Used to retrieve all installer files (Blobs) from a given Azure Blob Storage Container.
     if(-not (Get-Module -Name AzureRM.Storage -ListAvailable)) {
         try {
-            Install-Module -Name AzureRM.Storage -Scope CurrentUser
+            Install-Module -Name AzureRM.Storage
             Write-Output 'Installed AzureRM.Storage Module'
         }
         catch {
